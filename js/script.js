@@ -46,17 +46,7 @@ if (animItems.length > 0) {
 }
 
 
-// ============add <br> to text on small windowWidth==============
 
-window.addEventListener('resize', insertLineBreak);
+//===============validation
 
-function insertLineBreak() {
-	const textElement = document.getElementById('text');
-	const windowWidth = window.innerWidth;
-
-	if (windowWidth <= 768) {
-		textElement.innerHTML = 'Ручна та машинна штукатурка<br> в Києві та передмісті';
-	} else {
-		textElement.innerHTML = 'Ручна та машинна штукатурка в Києві та передмісті';
-	}
-}
+let validateForm = function (selctor, rules, succesModal, yaGoal)
