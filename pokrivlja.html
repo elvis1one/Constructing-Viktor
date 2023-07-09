@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="i1PV8ol9CGtFLmL1utyuZ1LIQQeBbw5z8BYfR3fIcVI" />
 	<link rel="stylesheet" href="css/style.css" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap&subset=cyrillic-ext"
@@ -409,27 +410,28 @@
 				<div class="popup__content">
 					<a href="#" class="popup__close">&#215;</a>
 					<div class="popup__text">Вкажіть тут свої дані та побажання і ми зв'яжемося з вами найближчим часом</div>
-					<form action="" class="popup-contacts">
+					<form id="form" action="mail.php" enctype="multipart/form-data" class="popup-contacts" method="POST">
+						<!-- <input type="hidden" name="admin_email[]" value="gavrikviktor@ukr.net"> -->
 						<div class="popup__row">
 							<div class="popup__column">
 								<div class="popup__input">
 									<label for="customer-name" class="popup__label">Ваше ім'я</label>
 									<input id="customer-name" type="text" autocomplete="off" name="form[]" data-value=""
-										class="input">
+										class="input req" data-validate-field="input">
 								</div>
 							</div>
 							<div class="popup__column">
 								<div class="popup__input">
 									<label for="customer-e-mail" class="popup__label">Ваш номер телефону </label>
 									<input id="customer-e-mail" type="tel" autocomplete="off" name="form[]" data-value=""
-										class="input">
+										class="input req">
 								</div>
 							</div>
 						</div>
 						<div class="popup__input">
 							<label for="customer-massage" class="popup__label">повідомлення</label>
 							<textarea id="customer-massage" autocomplete="off" name="form[]" data-value=""
-								class="input"></textarea>
+								class="input req"></textarea>
 						</div>
 						<div class="popup__btn">
 							<a href="">надіслати</a>
