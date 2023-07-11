@@ -251,8 +251,6 @@ body {
 			font-size: 14px;
 		}
 	}
-	&__massengers {
-	}
 	&__element {
 		display: inline-block;
 		max-width: 30px;
@@ -448,7 +446,9 @@ body {
 		opacity: 0;
 		transform: rotate(-90deg) scale(0);
 		transform-origin: top left;
-		transition: opacity 1.5s ease-in-out, transform 1s ease-in-out;
+		transition:
+			opacity 1.5s ease-in-out,
+			transform 1s ease-in-out;
 		&._active {
 			opacity: 1;
 			transform: rotate(0deg) scale(1);
@@ -509,8 +509,6 @@ body {
 		}
 	}
 }
-.prices {
-}
 
 table {
 	width: 100%;
@@ -553,9 +551,6 @@ tbody tr:hover {
 		padding: 20px 0px 0px 0px;
 	}
 
-	&__container {
-	}
-
 	&__header {
 		margin: 0px 0px 50px 0px;
 	}
@@ -572,7 +567,9 @@ tbody tr:hover {
 		flex: 0 1 25%;
 		opacity: 0;
 		transform: rotateY(-90deg);
-		transition: opacity 0.5s ease-in-out, transform 0.8s ease-in-out;
+		transition:
+			opacity 0.5s ease-in-out,
+			transform 0.8s ease-in-out;
 		&._active {
 			opacity: 1;
 			transform: rotateY(0deg);
@@ -631,8 +628,6 @@ tbody tr:hover {
 	@media (max-width: 767px) {
 		padding: 20px 0;
 	}
-	&__container {
-	}
 
 	&__header {
 		margin: 0px 0px 60px 0px;
@@ -657,7 +652,9 @@ tbody tr:hover {
 		flex: 0 0 50%;
 		opacity: 0;
 		transform: scale(0.8);
-		transition: opacity 2s ease-in-out, transform 1.5s ease-in-out;
+		transition:
+			opacity 2s ease-in-out,
+			transform 1.5s ease-in-out;
 		&._active {
 			opacity: 1;
 			transform: scale(1);
@@ -795,9 +792,6 @@ tbody tr:hover {
 		padding: 20px 0;
 	}
 
-	&__container {
-	}
-
 	&__header {
 		padding: 0px 0px 50px 0px;
 	}
@@ -852,8 +846,7 @@ tbody tr:hover {
 		background-color: #fff;
 		overflow: hidden;
 		padding: 0px 10px 10px;
-		&:hover img {
-		}
+
 		& img {
 			width: 100%;
 			height: 100%;
@@ -959,9 +952,6 @@ tbody tr:hover {
 	}
 	@media (max-width: 767px) {
 		padding: 20px 0;
-	}
-
-	&__container {
 	}
 
 	&__header {
@@ -1171,20 +1161,15 @@ tbody tr:hover {
 	&__btn {
 		background-color: $mainColor;
 		margin-top: 10px;
-		padding: 5px 20px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		padding: 0 35px;
 		text-align: center;
 		border-radius: 5px;
 		border: 2px solid #ff7b47;
 		transition: all 0.3s ease 0s;
-		& a {
-			font-weight: 600;
-			min-height: 44px;
-			line-height: 44px;
-			color: #000;
-		}
+		font-weight: 600;
+		min-height: 44px;
+		line-height: 44px;
+		color: #000;
 		&:hover {
 			background-color: #fff;
 		}
