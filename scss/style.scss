@@ -1150,6 +1150,12 @@ tbody tr:hover {
 	&__input {
 		& textarea {
 			height: 100px;
+			border-top: #000 solid 3px;
+			background-color: #afaeae;
+			font-weight: 600;
+			color: #fff;
+			width: 100%;
+			padding: 5px 5px;
 		}
 	}
 
@@ -1176,7 +1182,7 @@ tbody tr:hover {
 	}
 }
 
-.input {
+input {
 	border-top: #000 solid 3px;
 	background-color: #afaeae;
 	font-weight: 600;
@@ -1185,6 +1191,9 @@ tbody tr:hover {
 	padding: 5px 5px;
 }
 
-.input.error {
+.popup__input.error {
 	box-shadow: 0 0 15px #f00;
+}
+.error-lable {
+	color: #f00;
 }

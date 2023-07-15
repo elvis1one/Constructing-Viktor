@@ -49,22 +49,49 @@ if (animItems.length > 0) {
 
 //===============form to e-mail=======
 $(document).ready(function () {
-
-	//E-mail Ajax Send
-	$("form").submit(function () { //Change
+	// E-mail Ajax Send
+	$("form").submit(function () {
 		var th = $(this);
+
+		// Валидация формы
+		function removeError(input) {
+			var parent = input.closest('.form-group');
+			parent.removeClass('error');
+			parent.find('.error-label').remove();
+		}
+
+		function createError(input, text) {
+			var parent = input.closest('.form-group');
+			parent.addClass('error');
+			parent.append('<label class="error-label">' + text + '</label>');
+		}
+
+		var result = true;
+
+		th.find('input[type="text"], input[type="tel"], textarea').each(function () {
+			removeError($(this));
+			if ($(this).val() === '') {
+				createError($(this), 'Поле не заповнене');
+				result = false;
+			}
+		});
+
+		if (!result) {
+			return false;
+		}
+
+		// Отправка AJAX-запроса
 		$.ajax({
 			type: "POST",
-			url: "mail.php", //Change
+			url: "mail.php",
 			data: th.serialize()
 		}).done(function () {
 			alert("Дякуємо! Ваші дані успішно надіслано");
 			setTimeout(function () {
-				// Done Functions
 				th.trigger("reset");
 			}, 1000);
 		});
+
 		return false;
 	});
-
 });

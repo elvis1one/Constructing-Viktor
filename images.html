@@ -7,6 +7,7 @@
 	<meta name="description"
 		content="Будівельна компанія Альфа - провідний постачальник будівельних послуг. Ми займаємося будівництвом житлових та комерційних об'єктів, ремонтом інтер'єрів та забезпечуємо повний спектр будівельних матеріалів. Зверніться до нас для якісного та надійного будівництва.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<meta name="google-site-verification" content="i1PV8ol9CGtFLmL1utyuZ1LIQQeBbw5z8BYfR3fIcVI" />
 	<link rel="stylesheet" href="css/style.css" />
 	<link
@@ -149,30 +150,33 @@
 					<div class="popup__text">Вкажіть тут свої дані та побажання і ми зв'яжемося з вами найближчим часом</div>
 					<form id="form" action="mail.php" enctype="multipart/form-data" class="popup-contacts" method="POST">
 						<!-- <input type="hidden" name="admin_email[]" value="gavrikviktor@ukr.net"> -->
+						<!-- Hidden Required Fields -->
+						<!-- <input type="hidden" name="project_name" value="budcompanyalpha">
+						<input type="hidden" name="admin_email" value="aleksejkuralesov@gmail.com">
+						<input type="hidden" name="form_subject" value="user form"> -->
+
 						<div class="popup__row">
 							<div class="popup__column">
 								<div class="popup__input">
 									<label for="customer-name" class="popup__label">Ваше ім'я</label>
-									<input id="customer-name" type="text" autocomplete="off" name="form[]" data-value=""
+									<input id="customer-name" type="text" autocomplete="off" name="user_name" data-value=""
 										class="input req" data-validate-field="input">
 								</div>
 							</div>
 							<div class="popup__column">
 								<div class="popup__input">
 									<label for="customer-e-mail" class="popup__label">Ваш номер телефону </label>
-									<input id="customer-e-mail" type="tel" autocomplete="off" name="form[]" data-value=""
+									<input id="customer-e-mail" type="tel" autocomplete="off" name="user_phone" data-value=""
 										class="input req">
 								</div>
 							</div>
 						</div>
 						<div class="popup__input">
 							<label for="customer-massage" class="popup__label">повідомлення</label>
-							<textarea id="customer-massage" autocomplete="off" name="form[]" data-value=""
+							<textarea id="customer-massage" autocomplete="off" name="user_message" data-value=""
 								class="input req"></textarea>
 						</div>
-						<div class="popup__btn">
-							<a href="">надіслати</a>
-						</div>
+						<button class="popup__btn">надіслати</button>
 					</form>
 				</div>
 			</div>

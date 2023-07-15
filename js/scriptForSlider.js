@@ -44,62 +44,50 @@ function rollSlider() {
 
 
 //===============form to e-mail=======
+$(document).ready(function () {
+	// E-mail Ajax Send
+	$("form").submit(function () {
+		var th = $(this);
 
-document.addEventListener('DOMContentLoaded', function () {
-	const form = document.getElementById('form');
-	form.addEventListener('submit', formSend);
-
-	async function formSend(e) {
-		e.preventDefault();
-
-		let error = formValidate(form);
-
-		let formData = new FormData(form);
-
-		if (error === 0) {
-			form.classList.add('sending');
-			let response = await fetch('sendmail.php', {
-				method: 'POST',
-				body: formData
-			});
-			if (response.ok) {
-				let result = await response.json();
-				alert(result.message);
-				formPreview.innerHTML = '';
-				form.reset();
-				form.classList.remove('sending');
-			} else {
-				alert('Помилка');
-				form.classList.remove('sending');
-			}
-		} else {
-			alert("Заповніть, будь ласка, обов'язкові поля");
+		// Валидация формы
+		function removeError(input) {
+			var parent = input.closest('.form-group');
+			parent.removeClass('error');
+			parent.find('.error-label').remove();
 		}
-	}
 
-	function formValidate(form) {
-		let error = 0;
-		let formReq = document.querySelectorAll('.req');
-
-		for (let index = 0; index < formReq.length; index++) {
-			const input = formReq[index];
-			formRemoveError(input);
-
-			if (input.value === '') {
-				formAddError(input);
-				error++;
-			}
+		function createError(input, text) {
+			var parent = input.closest('.form-group');
+			parent.addClass('error');
+			parent.append('<label class="error-label">' + text + '</label>');
 		}
-	}
 
-	function formAddError(input) {
-		input.parentElement.classList.add('error');
-		input.classList.add('error')
-	}
-	function formRemoveError(input) {
-		input.parentElement.classList.remove('error');
-		input.classList.remove('error')
-	}
+		var result = true;
 
+		th.find('input[type="text"], input[type="tel"], textarea').each(function () {
+			removeError($(this));
+			if ($(this).val() === '') {
+				createError($(this), 'Поле не заповнене');
+				result = false;
+			}
+		});
 
+		if (!result) {
+			return false;
+		}
+
+		// Отправка AJAX-запроса
+		$.ajax({
+			type: "POST",
+			url: "mail.php",
+			data: th.serialize()
+		}).done(function () {
+			alert("Дякуємо! Ваші дані успішно надіслано");
+			setTimeout(function () {
+				th.trigger("reset");
+			}, 1000);
+		});
+
+		return false;
+	});
 });
